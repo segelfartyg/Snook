@@ -7,38 +7,35 @@ import (
 	"golang.org/x/net/websocket"
 )
 
+func ConnectionHandler(ws *websocket.Conn) {
 
-func TickTock(ws *websocket.Conn){
-	
 	buf := make([]byte, 1024)
+	for {
 
-	n, err := ws.Read(buf)
-	
-	
-	if err != nil {
-	
+		n, err := ws.Read(buf)
+
+		if err != nil {
+
 			fmt.Println(err)
-	}
-
+		}
+		
 	msg := buf[:n]
 
 	ws.Write(msg)
 
-	println(n)
-	println(string(msg))
+	fmt.Println(string(msg))
+	fmt.Println("new message")		
+	}
+
 }
 
 func main() {
-	
 
-	
-	http.Handle("/Tick", websocket.Handler(TickTock))
+	http.Handle("/ws", websocket.Handler(ConnectionHandler))
 	err := http.ListenAndServe(":3000", nil)
 
 	if err != nil {
 		panic("Listening failed" + err.Error())
 	}
-
-
 
 }
