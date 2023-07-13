@@ -32,6 +32,7 @@ buf := make([]byte, 1024)
 		if err != nil {
 
 			fmt.Println(err)
+			break;
 		}
 		
 	msg := buf[:n]

@@ -1,4 +1,4 @@
-package SnookWebSocket
+package Chat
 
 import (
 	"bufio"
@@ -11,12 +11,9 @@ import (
 
 var ws *websocket.Conn
 
-func Init()(*websocket.Conn) {
+func Init(chaturl string, origin string)(*websocket.Conn) {
 	fmt.Println("client starting")
-
-	origin := "http://localhost/"
-	url := "ws://localhost:3000/ws"
-	ws, err := websocket.Dial(url, "", origin) 
+	ws, err := websocket.Dial(chaturl, "", origin) 
 	if err != nil {
 		log.Fatal(err.Error())	
 	}
@@ -24,10 +21,10 @@ func Init()(*websocket.Conn) {
 }
 
 
-func ReadConn(ws *websocket.Conn){
+func ReadConn(ws *websocket.Conn, username string){
 
 	for {
-
+		go sendMessage(ws, username)
 		var msg = make([]byte, 512)
 		n, err := ws.Read(msg); if err != nil{
 			fmt.Println(err.Error())
@@ -37,17 +34,19 @@ func ReadConn(ws *websocket.Conn){
 		readMessage := msg[:n]
 		fmt.Println(string(readMessage))
 
-		go sendMessage(ws)
+		
 	}
 }
 
-func sendMessage(ws *websocket.Conn){
+func sendMessage(ws *websocket.Conn, username string){
 
 	reader := bufio.NewReader(os.Stdin)
 
 	text, _ := reader.ReadString('\n')
 
-	if _, err := ws.Write([]byte(text)); err != nil {
+	usernameMessage := username + ": " + text
+
+	if _, err := ws.Write([]byte(usernameMessage)); err != nil {
 		fmt.Println(err.Error())
 	}
 

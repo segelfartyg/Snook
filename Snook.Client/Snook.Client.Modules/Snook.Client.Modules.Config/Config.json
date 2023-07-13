@@ -1,0 +1,10 @@
+{
+  "version": 0.1,
+  "servers": [
+        {"name": "Default Snook Server", "description": "The default implementation of Snook", "url": "http://localhost:3000", "chaturl": "ws://localhost:3000/ws", "origin": "http://localhost/"}
+  ],
+  "user": {
+    "name": "segelfartyg",
+    "motto": "buckle up and sail away"
+  }
+}
