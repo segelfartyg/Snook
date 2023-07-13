@@ -25,23 +25,31 @@ func Init()(*websocket.Conn) {
 
 
 func ReadConn(ws *websocket.Conn){
-	for {
-		
-		reader := bufio.NewReader(os.Stdin)
-		fmt.Print("What do you want to send?...")
-		text, _ := reader.ReadString('\n')
-		fmt.Println(text)
 
-		if _, err := ws.Write([]byte(text)); err != nil {
-			fmt.Println(err.Error())
-			continue
-		}
-		
+	for {
+
 		var msg = make([]byte, 512)
-	 
-		if _, err := ws.Read(msg); err != nil{
+		n, err := ws.Read(msg); if err != nil{
 			fmt.Println(err.Error())
 			continue
 		}
+
+		readMessage := msg[:n]
+		fmt.Println(string(readMessage))
+
+		go sendMessage(ws)
 	}
+}
+
+func sendMessage(ws *websocket.Conn){
+
+	reader := bufio.NewReader(os.Stdin)
+
+	text, _ := reader.ReadString('\n')
+
+	if _, err := ws.Write([]byte(text)); err != nil {
+		fmt.Println(err.Error())
+	}
+
+
 }

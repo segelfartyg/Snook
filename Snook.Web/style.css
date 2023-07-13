@@ -1,0 +1,30 @@
+html, body {
+    width: 100%
+}
+
+.mainHeader {
+    text-align: center;
+}
+
+.mainContainer {
+    margin:auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatArea {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.messageArea{
+    min-height: 10rem;
+    height: 10rem;
+    overflow-y: scroll;
+    resize: none;
+    width: 30rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
