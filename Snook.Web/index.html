@@ -8,16 +8,25 @@
     <title>Snook Web Client</title>
 </head>
 <body>
+  
 <div class="mainContainer">
-    <h1 class="mainHeader">Welcome to the Snook Web Client</h1>
-    <div class="chatArea">
-        <div id="messageArea" class="messageArea">
-
+    <h3>Snook Client</h3>
+    <input placeholder="username">
+    <input placeholder="password">
+    <input placeholder="server">
+   
+        <div class="chatContainer">
+            <div id="messageArea" class="messageArea">
+            </div>
         </div>
-        <input id="inputMessage" class="chatInputField" type="text">
-        <button id="sendMsgBtn" class="sendMessageBtn">Send message</button>
-    </div>
+     
+        <div class="userInputArea">
+            <input id="inputMessage" class="chatInputField" type="text">
+            <button id="sendMsgBtn" class="sendMessageBtn">Send message</button>
+        </div>
+
 </div>
+
 </body>
 <script src="./script.js"></script>
 </html>

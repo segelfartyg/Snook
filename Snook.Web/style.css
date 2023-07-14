@@ -1,5 +1,15 @@
 html, body {
-    width: 100%
+    width: 100%;
+    height:100%;
+    margin:0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    display: flex;
+    position: relative;
+    display: flex;
+
 }
 
 .mainHeader {
@@ -11,20 +21,62 @@ html, body {
     width: fit-content;
     display: flex;
     flex-direction: column;
+    width:100%;
+    height:100%;
+    background:rgb(255, 255, 255);
 }
 
 .chatArea {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    
+    border: solid rgb(90, 150, 228) 1px;
+}
+
+.chatContainer {
+ 
+    display: flex;
+    
+
+    width: 100%;
+    margin:auto;
+    background: rgb(255, 255, 255);
+ 
 }
 
 .messageArea{
-    min-height: 10rem;
-    height: 10rem;
+    border: solid blue 1px;
+    height:50vh;
+    width:90%;
     overflow-y: scroll;
-    resize: none;
-    width: 30rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin:auto;
+    padding-left: 2rem;
+}
+
+.messageArea p {
+ 
+    font-size: 2rem;
+}
+
+.userInputArea{
+    margin-top:auto;
+    bottom:0;
+    width: 100%;
+    font-size: large;
+    height:fit-content;
+    margin:0;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    border-top:solid blue 1px;
+}
+
+#inputMessage{
+    font-size: 3rem;
+    padding: 1rem;
+    border:none;
+}
+button {
+    background: white;
+    border:none;
+    border-left:1px blue solid;
 }
