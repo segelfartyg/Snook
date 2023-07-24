@@ -11,6 +11,10 @@ type Server struct {
 	conns map[*websocket.Conn]bool
 }
 
+func PingPongHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Pong!")
+}
+
 func NewServer() *Server {
 	return &Server{
 		conns: make(map[*websocket.Conn]bool),
@@ -22,9 +26,8 @@ func (s *Server) ConnectionHandler(ws *websocket.Conn) {
 	s.ReadLoop(ws)
 }
 
-
-func (s *Server) ReadLoop(ws *websocket.Conn){
-buf := make([]byte, 1024)
+func (s *Server) ReadLoop(ws *websocket.Conn) {
+	buf := make([]byte, 1024)
 	for {
 
 		n, err := ws.Read(buf)
@@ -32,19 +35,19 @@ buf := make([]byte, 1024)
 		if err != nil {
 
 			fmt.Println(err)
-			break;
+			break
 		}
-		
-	msg := buf[:n]
-	fmt.Println(string(msg))
-	fmt.Println("new message")		
 
-	s.MessageToClients(msg)
+		msg := buf[:n]
+		fmt.Println(string(msg))
+		fmt.Println("new message")
+
+		s.MessageToClients(msg)
 
 	}
 }
 
-func (s *Server) MessageToClients(msg []byte){
+func (s *Server) MessageToClients(msg []byte) {
 	fmt.Println("Sending message to all clients")
 	for connection := range s.conns {
 		connection.Write(msg)
@@ -55,7 +58,8 @@ func (s *Server) MessageToClients(msg []byte){
 func main() {
 	server := NewServer()
 	http.Handle("/ws", websocket.Handler(server.ConnectionHandler))
-	err := http.ListenAndServe(":3000", nil)
+	http.HandleFunc("/ping", PingPongHandler)
+	err := http.ListenAndServe(":80", nil)
 
 	if err != nil {
 		panic("Listening failed" + err.Error())
