@@ -1,32 +1,29 @@
-var button = document.getElementById("sendMsgBtn")
+var button = document.getElementById("sendMsgBtn");
+var messageDiv = document.getElementById("messageArea");
 
-var messageDiv = document.getElementById("messageArea")
-
-
-
-
-
-let socket = new WebSocket("ws://localhost:3000/ws")
+let socket = new WebSocket("ws://localhost:80/ws");
 
 socket.addEventListener("message", (event) => {
+  console.log(event);
 
-    console.log(event)
-
-    messageDiv.innerHTML += `<p>${event.data}</p>`
-})
+  messageDiv.innerHTML += `<p>${event.data}</p>`;
+});
 
 socket.onmessage = (event) => {
-    console.log(event)
-}
+  console.log(event);
+};
 
-
+document.addEventListener("keypress", (event) => {
+  if (event.key == "Enter") {
+    var messageInput = document.getElementById("inputMessage");
+    socket.send(messageInput.value);
+    messageInput.value = "";
+  }
+});
 
 button.addEventListener("click", (event) => {
+  var messageInput = document.getElementById("inputMessage");
 
-    var messageInput = document.getElementById("inputMessage")
-
-  
-        socket.send(messageInput.value)
-
-
-})
+  socket.send(messageInput.value);
+  messageInput.value = "";
+});

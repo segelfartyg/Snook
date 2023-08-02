@@ -12,7 +12,7 @@ type Server struct {
 }
 
 func PingPongHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Pong!")
+	fmt.Fprintf(w, "tjing.")
 }
 
 func NewServer() *Server {
@@ -41,7 +41,6 @@ func (s *Server) ReadLoop(ws *websocket.Conn) {
 		msg := buf[:n]
 		fmt.Println(string(msg))
 		fmt.Println("new message")
-
 		s.MessageToClients(msg)
 
 	}
@@ -52,7 +51,6 @@ func (s *Server) MessageToClients(msg []byte) {
 	for connection := range s.conns {
 		connection.Write(msg)
 	}
-
 }
 
 func main() {

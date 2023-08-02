@@ -9,7 +9,10 @@ body{
     display: flex;
     position: relative;
     display: flex;
+}
 
+h3{
+    font-size: 2rem;
 }
 
 .mainHeader {
@@ -21,9 +24,20 @@ body{
     width: fit-content;
     display: flex;
     flex-direction: column;
-    width:100%;
+    width:90%;
     height:100%;
     background:rgb(255, 255, 255);
+   
+}
+
+.topArea{
+    display:flex;
+    margin:auto;
+    padding:0;
+    margin:0;
+    margin-right: auto;
+    margin-left: auto;
+    height:fit-content;
 }
 
 .chatArea {
@@ -45,12 +59,13 @@ body{
 }
 
 .messageArea{
-    border: solid blue 1px;
+    border: solid rgb(0, 0, 0) 0.25rem;
     height:50vh;
-    width:90%;
+    width:100%;
     overflow-y: scroll;
     margin:auto;
     padding-left: 2rem;
+    
 }
 
 .messageArea p {
@@ -59,24 +74,30 @@ body{
 }
 
 .userInputArea{
-    margin-top:auto;
-    bottom:0;
-    width: 100%;
-    font-size: large;
-    height:fit-content;
-    margin:0;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    border-top:solid blue 1px;
+  width:100%;
+
+  display: grid;
+  gap: 10%;
+  grid-template-columns: 3fr 1fr;
+  margin-bottom: 2rem;
 }
 
 #inputMessage{
     font-size: 3rem;
     padding: 1rem;
     border:none;
+    width:100%;
+    margin:auto;
+    border:0.25rem rgb(0, 0, 0) solid;
+
+
 }
 button {
     background: white;
     border:none;
-    border-left:1px blue solid;
+    border:0.25rem rgb(0, 0, 0) solid;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:2rem;
+    width:4rem;
+    width:100%;
 }
