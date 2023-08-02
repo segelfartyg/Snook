@@ -1,7 +1,13 @@
 # Snook
 
 ## Introduction
-This repo contains three domain areas: The Snook.Client (CLI), the Snook.Server and the Snook.Web.Client. Each domain area has its own dependencies and funcitonalities, but they all unite in their connection to each other. The goal of this project is to make interaction with many systems and eco systems easier, through interfaces that are accessable and normalized by the end user. The way that this is accomplished is mainly through a WebSocket communication, but eventually HTTP will be implemented and integrated in the platform.
+This repo contains four domain areas: 
+1. The Snook Server (Snook.Server): the core of the implementation, enabling clients to communicate with each other.
+2. The CLI client (Snook.Client): Made for using Snook in the terminal and applying commands making configurations.
+3. The Web client (Snook.Web): Made for using Snook through a web interface
+4. The Snook IoT implementation (Snook.IoT): Made for connecting IoT devices to the Snook system.
+
+Each domain area has its own dependencies and funcitonalities, but they all unite in their connection to each other. The goal of this project is to make interaction with many systems and eco systems easier, through interfaces that are accessable and normalized by the end user. The way that this is accomplished is mainly through a WebSocket communication, but also through complementery HTTP in the form of REST.
 
 ## Structure 📁
 Each domain area has its own folder in the repo. In each domain area, there are modules and configuration files. These are found in the [DomainArea].Modules folder. Right now the domain area containing the highest amount of modules is the CLI client positioned in the Snook.Client directory. In this structure you will also find configuration files that are used to configure the applications. 
