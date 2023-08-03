@@ -171,39 +171,5 @@ void setup()
 
 void loop()
 {
-
   webSocket.loop();
-  // Serial.println("Making http req");
-  // if (httpclient.connect(server, 80))
-  // {
-  //   httpclient.println("GET /ping HTTP/1.1");
-  //   httpclient.println("Host: .... ");
-  //   httpclient.println("Connection: close");
-  //   httpclient.println();
-  // }
-
-  // String response = dataReader(httpclient);
-
-  // Serial.println("RESPONSE:");
-  // Serial.println(response);
-
-  // char *responseArray = new char[response.length()];
-  // strcpy(responseArray, response.c_str());
-  // String body = strstr(responseArray, "\n\r\n");
-  // String output;
-
-  // for (int i = 0; i < body.length(); i++)
-  // {
-
-  //   if (body[i] != '\n' && body[i] != '\r')
-  //   {
-  //     output += body[i];
-  //   }
-  // }
-
-  // lcd.clear();
-  // lcd.setCursor(0, 0);
-  // lcd.print(output);
-
-  // delay(2000);
 }
