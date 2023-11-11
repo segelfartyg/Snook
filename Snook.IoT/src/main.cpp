@@ -10,7 +10,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 const char *ssid_router = SECRET_WIFI_SSID;
 const char *password_router = SECRET_WIFI_PASSWORD;
-char server[] = SERVER_IP;
+const char *server = SERVER_IP;
+const char *deviceId = SERVER_IP;
 
 WiFiClient httpclient;
 WebSocketsClient webSocket;
@@ -147,7 +148,7 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length){
 void setup()
 {
 
-  webSocket.begin("192.168.1.138", 80, "/ws");
+  webSocket.begin(server, 80, "/ws");
 
   webSocket.onEvent(webSocketEvent);
 
