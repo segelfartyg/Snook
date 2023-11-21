@@ -57,7 +57,7 @@ func main() {
 	server := NewServer()
 	http.Handle("/ws", websocket.Handler(server.ConnectionHandler))
 	http.HandleFunc("/ping", PingPongHandler)
-	err := http.ListenAndServe(":80", nil)
+	err := http.ListenAndServe(":8080", nil)
 
 	if err != nil {
 		panic("Listening failed" + err.Error())
