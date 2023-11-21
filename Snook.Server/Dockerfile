@@ -10,7 +10,7 @@ COPY *.go ./
 
 EXPOSE 8080
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o /splodo-server-app
+RUN CGO_ENABLED=0 GOOS=linux go build -o /snook-server-app
 
 
 CMD ["/snook-server-app"]
