@@ -1,7 +1,7 @@
 {
   "version": 0.1,
   "servers": [
-        {"name": "Default Snook Server", "description": "The default implementation of Snook", "url": "http://192.168.1.138:80", "chaturl": "ws://192.168.1.138:80/ws", "origin": "http://192.168.1.138/"}
+        {"name": "Default Snook Server", "description": "The default implementation of Snook", "url": "http://192.168.1.138:8080", "chaturl": "ws://192.168.1.138:8080/ws", "origin": "http://192.168.1.138/"}
   ],
   "user": {
     "name": "segelfartyg",

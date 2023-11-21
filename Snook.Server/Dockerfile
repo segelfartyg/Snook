@@ -8,9 +8,9 @@ RUN go mod download && go mod verify
 
 COPY *.go ./
 
-EXPOSE 80
+EXPOSE 8080
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o /splodo-server-app
 
 
-CMD ["/splodo-server-app"]
+CMD ["/snook-server-app"]

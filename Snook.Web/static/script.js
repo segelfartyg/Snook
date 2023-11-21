@@ -1,7 +1,7 @@
 var button = document.getElementById("sendMsgBtn");
 var messageDiv = document.getElementById("messageArea");
 
-let socket = new WebSocket("ws://localhost:80/ws");
+let socket = new WebSocket("ws://192.168.33:8080/ws");
 
 socket.addEventListener("message", (event) => {
   console.log(event);
